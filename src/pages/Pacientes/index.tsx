@@ -1,13 +1,9 @@
-import { Button } from "@mui/material";
+//import { Button } from "@mui/material";
 import { useState } from "react";
-
-
-//import Inputs from "../../components/Inputs";
-import Input from "../../components/Inputs"
-//import PacienteContainer from "../../components/PacienteContainer";
-//import PacienteItem from "../../components/PacienteItem";
 import { cadastroPaciente } from "../../services/MainApi/pacientes";
-import "../Pacientes/styles.css";
+import Input from "../../components/Inputs"
+import Stack from 'react-bootstrap/Stack';
+import { Button, Form } from "react-bootstrap";
 
 function Pacientes() {
   
@@ -30,7 +26,7 @@ function Pacientes() {
       if(response.status !== 201){
         return alert("Deu algo errado");
       }
-
+      
       alert("Cadastro efetuado com sucesso")
     }catch (error){
       alert("Algo errado no catch")
@@ -39,29 +35,32 @@ function Pacientes() {
   ;
 
     return (
-      <div>
-        <h1> Página de pacientes</h1>
-        <form onSubmit={cadastro} >
-          <Input 
-            label="Nome"
-            value={nome}
-            placeholder="Nome do paciente" 
-            onChange={(event) => setNomePaciente(event)}
-          />
-          <Input 
-            label="Email"
-            value={email}
-            placeholder="Email do paciente" 
-            onChange={(event) => setEmailPaciente(event)}
-          />
-          <Input 
-            label="Idade"
-            value={idade}
-            placeholder="Aniversário do paciente" 
-            onChange={(event) => setIdadePaciente(event)}
-          />
-          <Button type="submit">Enviar</Button>
-        </form>
+      <div className="App">
+        <h1> Página de pacientes </h1>
+        <Stack  gap={4} className="col-md-5 mx-auto" >
+          <Form onSubmit={cadastro} >
+            <Input 
+              label="Nome"
+              value={nome}
+              placeholder="Nome do paciente" 
+              onChange={(event) => setNomePaciente(event)}
+            />
+            <Input 
+              label="Email"
+              value={email}
+              placeholder="Email do paciente" 
+              onChange={(event) => setEmailPaciente(event)}
+            />
+            <Input 
+              label="Idade"
+              value={idade}
+              placeholder="Aniversário do paciente" 
+              onChange={(event) => setIdadePaciente(event)}
+            />
+            <Button variant="primary" type="submit">Enviar</Button>
+          </Form>
+          
+        </Stack>
 
       </div>
     );
