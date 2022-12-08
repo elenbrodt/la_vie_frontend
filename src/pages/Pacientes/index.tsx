@@ -16,8 +16,8 @@ function Pacientes() {
 
     const payload = {
       nome, 
-      email,
-      idade,
+      email
+     
     }
 
     try{
@@ -42,18 +42,21 @@ function Pacientes() {
             <Input 
               label="Nome"
               value={nome}
+              type="text"
               placeholder="Nome do paciente" 
               onChange={(event) => setNomePaciente(event)}
             />
             <Input 
               label="Email"
               value={email}
+              type="email"
               placeholder="Email do paciente" 
               onChange={(event) => setEmailPaciente(event)}
             />
             <Input 
               label="Idade"
               value={idade}
+              type="text"
               placeholder="Aniversário do paciente" 
               onChange={(event) => setIdadePaciente(event)}
             />
